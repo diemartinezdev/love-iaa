@@ -1,11 +1,12 @@
 package com.dieveloper.loveiaa.models;
 
+import com.dieveloper.loveiaa.repositories.InstitutionRepository;
+import org.aspectj.lang.reflect.InitializerSignature;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Professional {
@@ -17,6 +18,9 @@ public class Professional {
     private String lastName;
     private String email;
     private String password;
+
+    @OneToMany(mappedBy="prof", fetch=FetchType.EAGER)
+    Set<Institution> institutions = new HashSet<>();
 
     public Professional() { }
     public Professional(String first, String last, String email, String password) {
@@ -64,5 +68,14 @@ public class Professional {
 
     public String toString() {
         return firstName + " " + lastName;
+    }
+
+    public Set<Institution> getInstitutions() {
+        return institutions;
+    }
+
+    public void addInstitution(Institution institution) {
+        institution.setProf(this);
+        institutions.add(institution);
     }
 }

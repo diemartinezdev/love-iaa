@@ -16,7 +16,7 @@ public class Institution {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="prof_id")
-    private Professional prof;
+    private Professional professional;
 
     public Institution() { }
 
@@ -54,11 +54,11 @@ public class Institution {
         this.contact = contact;
     }
 
-    public Professional getProf() {
-        return prof;
+    public Professional getProfessionals() {
+        return professional;
     }
 
-    public void setProf(Professional prof) {
-        this.prof = prof;
+    public void setProfessionals(Professional professionals) {
+        this.professional = professionals;
     }
 }

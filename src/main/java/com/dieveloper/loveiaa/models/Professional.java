@@ -1,7 +1,5 @@
 package com.dieveloper.loveiaa.models;
 
-import com.dieveloper.loveiaa.repositories.InstitutionRepository;
-import org.aspectj.lang.reflect.InitializerSignature;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -19,7 +17,7 @@ public class Professional {
     private String email;
     private String password;
 
-    @OneToMany(mappedBy="prof", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy="professional", fetch=FetchType.EAGER)
     Set<Institution> institutions = new HashSet<>();
 
     public Professional() { }
@@ -74,8 +72,12 @@ public class Professional {
         return institutions;
     }
 
+    public void setInstitutions(Set<Institution> institutions) {
+        this.institutions = institutions;
+    }
+
     public void addInstitution(Institution institution) {
-        institution.setProf(this);
+        institution.setProfessionals(this);
         institutions.add(institution);
     }
 }

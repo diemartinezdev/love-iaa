@@ -5,7 +5,7 @@ import com.dieveloper.loveiaa.models.Institution;
 public class InstitutionDTO {
     private Long id;
     private String name;
-    private String address;
+    private Institution.Address address;
     private String contact;
 
     public InstitutionDTO() { }
@@ -24,7 +24,7 @@ public class InstitutionDTO {
         return name;
     }
 
-    public String getAddress() {
+    public Institution.Address getAddress() {
         return address;
     }
 

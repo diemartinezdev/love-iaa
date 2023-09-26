@@ -22,10 +22,11 @@ public class LoveIaaApplication {
 			Professional user0 = new Professional("Pepe","Pepitez","pepe@gmail.com","pepita");
 			professionalRepository.save(user0);
 
-			Institution inst0 = new Institution("Pere Terres","C. del Chori 12, Barcelona","pere@terres.com");
+			/*
+			Institution inst0 = new Institution("Pera Terres","Lepant, 11, Barcelona, Barcelona, España","pera@terres.com");
 			institutionRepository.save(inst0);
-
 			user0.addInstitution(inst0);
+*/
 		};
 	}
 }

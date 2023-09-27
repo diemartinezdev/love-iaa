@@ -18,7 +18,7 @@ public class Professional {
     private String password;
 
     @OneToMany(mappedBy="professional", fetch=FetchType.EAGER)
-    Set<Institution> institutions = new HashSet<>();
+    private Set<Institution> institutions = new HashSet<>();
 
     public Professional() { }
     public Professional(String first, String last, String email, String password) {
@@ -77,7 +77,7 @@ public class Professional {
     }
 
     public void addInstitution(Institution institution) {
-        institution.setProfessionals(this);
+        institution.setProfessional(this);
         institutions.add(institution);
     }
 }

@@ -25,7 +25,7 @@ public class Institution {
     public Institution() {
     }
 
-    public Institution(String name, String street, Integer number, String city, String province, String country, String email) {
+    public Institution(String name, String street, Integer number, String city, String province, String country, String email, Professional professional) {
         this.name = name;
         this.street = street;
         this.number = number;
@@ -33,6 +33,7 @@ public class Institution {
         this.province = province;
         this.country = country;
         this.email = email;
+        this.professional = professional;
     }
 
     public Long getId() {

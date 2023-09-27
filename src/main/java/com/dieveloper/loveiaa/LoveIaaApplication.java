@@ -21,12 +21,15 @@ public class LoveIaaApplication {
 		return (args) -> {
 			Professional user0 = new Professional("Pepe","Pepitez","pepe@gmail.com","pepita");
 			professionalRepository.save(user0);
-
-
-			Institution inst0 = new Institution("Pera Terres","Lepant",11,"Barcelona","Barcelona","España","pera@terres.com");
+			Institution inst0 = new Institution("Pera Terres","Lepant",11,"Barcelona","Barcelona","España","pera@terres.com",user0);
 			institutionRepository.save(inst0);
-			user0.addInstitution(inst0);
 
+			Professional user1 = new Professional("Alesia", "Filippo", "alex@gmail.com", "pupi123");
+			professionalRepository.save(user1);
+			Institution inst1 = new Institution("Raices","Aranguren",4518,"Floresta","CABA","Argentina","raices@gmail.com",user1);
+			institutionRepository.save(inst1);
+			Institution inst2 = new Institution("Tierra de encuentro","Miramar golf club",2662,"Pilar","Buenos Aires","Argentina","tierra@deencuentro.com",user1);
+			institutionRepository.save(inst2);
 		};
 	}
 }

@@ -19,6 +19,8 @@ public class Professional {
 
     @OneToMany(mappedBy="professional", fetch=FetchType.EAGER)
     private Set<Institution> institutions = new HashSet<>();
+    @OneToMany(mappedBy="professional", fetch=FetchType.EAGER)
+    private Set<Activity> activities = new HashSet<>();
 
     public Professional() { }
     public Professional(String first, String last, String email, String password) {

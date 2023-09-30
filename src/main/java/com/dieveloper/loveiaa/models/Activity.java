@@ -3,6 +3,8 @@ package com.dieveloper.loveiaa.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
+
 
 @Entity
 public class Activity {
@@ -22,9 +24,9 @@ public class Activity {
     @JoinColumn(name = "prof_id")
     private Professional professional;
 
-    /*
-    Establecer relacion muchos a muchos con institucion
-     */
+    @OneToMany(mappedBy = "activity")
+    private List<Calendar> calendars;
+
     public Activity() { }
     public Activity(String name, String type, String description, String materials, String dynamic, Integer patients, Integer valoration, Integer duration, Professional professional) {
         this.name = name;
@@ -36,5 +38,93 @@ public class Activity {
         this.valoration = valoration;
         this.duration = duration;
         this.professional = professional;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getMaterials() {
+        return materials;
+    }
+
+    public void setMaterials(String materials) {
+        this.materials = materials;
+    }
+
+    public String getDynamic() {
+        return dynamic;
+    }
+
+    public void setDynamic(String dynamic) {
+        this.dynamic = dynamic;
+    }
+
+    public Integer getPatients() {
+        return patients;
+    }
+
+    public void setPatients(Integer patients) {
+        this.patients = patients;
+    }
+
+    public Integer getValoration() {
+        return valoration;
+    }
+
+    public void setValoration(Integer valoration) {
+        this.valoration = valoration;
+    }
+
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+
+    public Professional getProfessional() {
+        return professional;
+    }
+
+    public void setProfessional(Professional professional) {
+        this.professional = professional;
+    }
+
+    public List<Calendar> getCalendars() {
+        return calendars;
+    }
+
+    public void setCalendars(List<Calendar> calendars) {
+        this.calendars = calendars;
     }
 }

@@ -3,6 +3,7 @@ package com.dieveloper.loveiaa.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Institution {
@@ -21,6 +22,9 @@ public class Institution {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "prof_id")
     private Professional professional;
+
+    @OneToMany(mappedBy = "institution")
+    private List<Calendar> calendars;
 
     public Institution() {
     }
@@ -106,5 +110,13 @@ public class Institution {
 
     public void setProfessional(Professional professional) {
         this.professional = professional;
+    }
+
+    public List<Calendar> getCalendars() {
+        return calendars;
+    }
+
+    public void setCalendars(List<Calendar> calendars) {
+        this.calendars = calendars;
     }
 }

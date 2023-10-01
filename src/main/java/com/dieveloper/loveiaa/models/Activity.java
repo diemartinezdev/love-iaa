@@ -3,8 +3,10 @@ package com.dieveloper.loveiaa.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-
+import java.util.Set;
 
 @Entity
 public class Activity {
@@ -24,8 +26,8 @@ public class Activity {
     @JoinColumn(name = "prof_id")
     private Professional professional;
 
-    @OneToMany(mappedBy = "activity")
-    private List<Calendar> calendars;
+    @OneToMany(mappedBy = "activity", fetch = FetchType.EAGER)
+    private List<Calendar> calendars = new ArrayList<>();
 
     public Activity() { }
     public Activity(String name, String type, String description, String materials, String dynamic, Integer patients, Integer valoration, Integer duration, Professional professional) {

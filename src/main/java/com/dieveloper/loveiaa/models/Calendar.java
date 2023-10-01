@@ -22,7 +22,7 @@ public class Calendar {
     private Activity activity;
 
     @ManyToOne
-    @JoinColumn(name = "institution")
+    @JoinColumn(name = "institution_id")
     private Institution institution;
 
 
@@ -34,6 +34,7 @@ public class Calendar {
         this.activity = activity;
         this.institution = institution;
     }
+
     public Long getId() {
         return id;
     }

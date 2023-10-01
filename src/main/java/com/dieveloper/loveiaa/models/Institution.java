@@ -3,7 +3,9 @@ package com.dieveloper.loveiaa.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Institution {
@@ -23,8 +25,8 @@ public class Institution {
     @JoinColumn(name = "prof_id")
     private Professional professional;
 
-    @OneToMany(mappedBy = "institution")
-    private List<Calendar> calendars;
+    @OneToMany(mappedBy = "institution", fetch = FetchType.EAGER)
+    private Set<Calendar> calendars = new HashSet<>();
 
     public Institution() {
     }
@@ -112,11 +114,11 @@ public class Institution {
         this.professional = professional;
     }
 
-    public List<Calendar> getCalendars() {
+    public Set<Calendar> getCalendars() {
         return calendars;
     }
 
-    public void setCalendars(List<Calendar> calendars) {
+    public void setCalendars(Set<Calendar> calendars) {
         this.calendars = calendars;
     }
 }

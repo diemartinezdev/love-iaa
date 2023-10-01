@@ -1,5 +1,6 @@
 package com.dieveloper.loveiaa.dtos;
 
+import com.dieveloper.loveiaa.models.Activity;
 import com.dieveloper.loveiaa.models.Professional;
 
 import java.util.Set;
@@ -12,9 +13,8 @@ public class ProfessionalDTO {
     private String lastName;
     private String email;
     private String password;
-
     private Set<InstitutionDTO> institutions;
-
+    private Set<Activity> activities;
     public ProfessionalDTO() {
     }
 

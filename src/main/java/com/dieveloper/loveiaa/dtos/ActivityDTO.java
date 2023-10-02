@@ -1,11 +1,6 @@
 package com.dieveloper.loveiaa.dtos;
 
 import com.dieveloper.loveiaa.models.Activity;
-import com.dieveloper.loveiaa.models.Calendar;
-
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class ActivityDTO {
     private Long id;
@@ -66,5 +61,4 @@ public class ActivityDTO {
     public Integer getDuration() {
         return duration;
     }
-
 }

@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class Calendar {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")

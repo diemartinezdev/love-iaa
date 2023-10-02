@@ -1,6 +1,5 @@
 package com.dieveloper.loveiaa.controllers;
 
-
 import com.dieveloper.loveiaa.dtos.ProfessionalDTO;
 import com.dieveloper.loveiaa.repositories.ProfessionalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import static java.util.stream.Collectors.toList;
 @RestController
 @RequestMapping("/api")
 public class ProfessionalController {
-
     @Autowired
     private ProfessionalRepository professionalRepository;
 

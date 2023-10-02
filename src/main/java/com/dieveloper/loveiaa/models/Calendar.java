@@ -3,7 +3,8 @@ package com.dieveloper.loveiaa.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 public class Calendar {
@@ -11,12 +12,8 @@ public class Calendar {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private Long id;
-
-    @Temporal(TemporalType.DATE)
-    private Date date;
-
-    @Temporal(TemporalType.TIME)
-    private Date hour;
+    private LocalDate date;
+    private LocalTime hour;
 
     @ManyToOne
     @JoinColumn(name = "activity_id")
@@ -29,7 +26,7 @@ public class Calendar {
 
     public Calendar() { }
 
-    public Calendar(Date date, Date hour, Activity activity, Institution institution) {
+    public Calendar(LocalDate date, LocalTime hour, Activity activity, Institution institution) {
         this.date = date;
         this.hour = hour;
         this.activity = activity;
@@ -44,19 +41,19 @@ public class Calendar {
         this.id = id;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public Date getHour() {
+    public LocalTime getHour() {
         return hour;
     }
 
-    public void setHour(Date hour) {
+    public void setHour(LocalTime hour) {
         this.hour = hour;
     }
 

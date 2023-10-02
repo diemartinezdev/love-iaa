@@ -2,12 +2,13 @@ package com.dieveloper.loveiaa.dtos;
 
 import com.dieveloper.loveiaa.models.Calendar;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class CalendarDTO {
     private Long id;
-    private Date date;
-    private Date hour;
+    private LocalDate date;
+    private LocalTime hour;
     private Long activityId;
     private Long institutionId;
 
@@ -23,11 +24,11 @@ public class CalendarDTO {
         return id;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public Date getHour() {
+    public LocalTime getHour() {
         return hour;
     }
 

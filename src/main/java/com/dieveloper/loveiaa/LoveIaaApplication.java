@@ -1,13 +1,19 @@
 package com.dieveloper.loveiaa;
 
+import com.dieveloper.loveiaa.models.Activity;
+import com.dieveloper.loveiaa.models.Calendar;
 import com.dieveloper.loveiaa.models.Institution;
 import com.dieveloper.loveiaa.models.Professional;
+import com.dieveloper.loveiaa.repositories.ActivityRepository;
+import com.dieveloper.loveiaa.repositories.CalendarRepository;
 import com.dieveloper.loveiaa.repositories.InstitutionRepository;
 import com.dieveloper.loveiaa.repositories.ProfessionalRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.time.LocalDate;
 
 @SpringBootApplication
 public class LoveIaaApplication {
@@ -17,7 +23,7 @@ public class LoveIaaApplication {
 	}
 
 	@Bean
-	public CommandLineRunner initData(ProfessionalRepository professionalRepository, InstitutionRepository institutionRepository) {
+	public CommandLineRunner initData(ProfessionalRepository professionalRepository, InstitutionRepository institutionRepository, ActivityRepository activityRepository, CalendarRepository calendarRepository) {
 		return (args) -> {
 			Professional user0 = new Professional("Pepe","Pepitez","pepe@gmail.com","pepita");
 			professionalRepository.save(user0);
@@ -30,6 +36,10 @@ public class LoveIaaApplication {
 			institutionRepository.save(inst1);
 			Institution inst2 = new Institution("Tierra de encuentro","Miramar golf club",2662,"Pilar","Buenos Aires","Argentina","tierra@deencuentro.com",user1);
 			institutionRepository.save(inst2);
+
+			Activity acti1 = new Activity("Equilibrio","Propiocepción","asdfasdf","Pelota a la mitad","Se sube a la pelota",4,9,25,user1);
+			activityRepository.save(acti1);
+
 		};
 	}
 }

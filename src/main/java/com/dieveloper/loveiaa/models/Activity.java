@@ -27,7 +27,7 @@ public class Activity {
     private Professional professional;
 
     @OneToMany(mappedBy = "activity", fetch = FetchType.EAGER)
-    private List<Calendar> calendars = new ArrayList<>();
+    private Set<Calendar> calendars = new HashSet<>();
 
     public Activity() { }
     public Activity(String name, String type, String description, String materials, String dynamic, Integer patients, Integer valoration, Integer duration, Professional professional) {
@@ -122,11 +122,11 @@ public class Activity {
         this.professional = professional;
     }
 
-    public List<Calendar> getCalendars() {
+    public Set<Calendar> getCalendars() {
         return calendars;
     }
 
-    public void setCalendars(List<Calendar> calendars) {
+    public void setCalendars(Set<Calendar> calendars) {
         this.calendars = calendars;
     }
 }

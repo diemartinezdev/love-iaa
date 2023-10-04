@@ -16,11 +16,11 @@ public class Calendar {
     private LocalTime hour;
 
     @ManyToOne
-    @JoinColumn(name = "activity_id")
+    @JoinColumn(name = "activity_name")
     private Activity activity;
 
     @ManyToOne
-    @JoinColumn(name = "institution_id")
+    @JoinColumn(name = "institution_name")
     private Institution institution;
 
 

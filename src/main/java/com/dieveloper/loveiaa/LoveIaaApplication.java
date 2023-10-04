@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @SpringBootApplication
 public class LoveIaaApplication {
@@ -40,6 +41,8 @@ public class LoveIaaApplication {
 			Activity acti1 = new Activity("Equilibrio","Propiocepción","asdfasdf","Pelota a la mitad","Se sube a la pelota",4,9,25,user1);
 			activityRepository.save(acti1);
 
+			Calendar event1 = new Calendar(LocalDate.of(2023,10,21), LocalTime.of(12,00),acti1,inst1);
+			calendarRepository.save(event1);
 		};
 	}
 }

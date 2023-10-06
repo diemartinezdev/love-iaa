@@ -1,6 +1,7 @@
 package com.dieveloper.loveiaa.models;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -23,14 +24,18 @@ public class Calendar {
     @JoinColumn(name = "institution_name")
     private Institution institution;
 
+    @ManyToOne
+    @JoinColumn(name = "professional_id")
+    private Professional professional;
 
     public Calendar() { }
 
-    public Calendar(LocalDate date, LocalTime hour, Activity activity, Institution institution) {
+    public Calendar(LocalDate date, LocalTime hour, Activity activity, Institution institution, Professional professional) {
         this.date = date;
         this.hour = hour;
         this.activity = activity;
         this.institution = institution;
+        this.professional = professional;
     }
 
     public Long getId() {
@@ -71,5 +76,13 @@ public class Calendar {
 
     public void setInstitution(Institution institution) {
         this.institution = institution;
+    }
+
+    public Professional getProfessional() {
+        return professional;
+    }
+
+    public void setProfessional(Professional professional) {
+        this.professional = professional;
     }
 }

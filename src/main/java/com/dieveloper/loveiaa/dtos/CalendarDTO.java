@@ -9,15 +9,15 @@ public class CalendarDTO {
     private Long id;
     private LocalDate date;
     private LocalTime hour;
-    private Long activityId;
-    private Long institutionId;
+    private String activityName;
+    private String institutionName;
 
     public CalendarDTO(Calendar calendar) {
         this.id = calendar.getId();
         this.date = calendar.getDate();
         this.hour = calendar.getHour();
-        this.activityId = calendar.getActivity().getId();
-        this.institutionId = calendar.getInstitution().getId();
+        this.activityName = calendar.getActivity().getName();
+        this.institutionName = calendar.getInstitution().getName();
     }
 
     public Long getId() {
@@ -32,11 +32,11 @@ public class CalendarDTO {
         return hour;
     }
 
-    public Long getActivityId() {
-        return activityId;
+    public String getActivityName() {
+        return activityName;
     }
 
-    public Long getInstitutionId() {
-        return institutionId;
+    public String getInstitutionName() {
+        return institutionName;
     }
 }

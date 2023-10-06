@@ -17,12 +17,16 @@ public class Professional {
     private String email;
     private String password;
 
-    @OneToMany(mappedBy="professional", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "professional", fetch = FetchType.EAGER)
     private Set<Institution> institutions = new HashSet<>();
-    @OneToMany(mappedBy="professional", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "professional", fetch = FetchType.EAGER)
     private Set<Activity> activities = new HashSet<>();
+    @OneToMany(mappedBy = "professional", fetch = FetchType.EAGER)
+    private Set<Calendar> calendars = new HashSet<>();
 
-    public Professional() { }
+    public Professional() {
+    }
+
     public Professional(String first, String last, String email, String password) {
         this.firstName = first;
         this.lastName = last;
@@ -81,5 +85,21 @@ public class Professional {
     public void addInstitution(Institution institution) {
         institution.setProfessional(this);
         institutions.add(institution);
+    }
+
+    public Set<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(Set<Activity> activities) {
+        this.activities = activities;
+    }
+
+    public Set<Calendar> getCalendars() {
+        return calendars;
+    }
+
+    public void setCalendars(Set<Calendar> calendars) {
+        this.calendars = calendars;
     }
 }

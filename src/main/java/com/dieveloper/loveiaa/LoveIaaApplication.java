@@ -41,7 +41,7 @@ public class LoveIaaApplication {
 			Activity acti1 = new Activity("Equilibrio","Propiocepción","asdfasdf","Pelota a la mitad","Se sube a la pelota",4,9,25,user1);
 			activityRepository.save(acti1);
 
-			Calendar event1 = new Calendar(LocalDate.of(2023,10,21), LocalTime.of(12,00),acti1,inst1);
+			Calendar event1 = new Calendar(LocalDate.of(2023,2,22),LocalTime.of(22,03),acti1,inst2,user1);
 			calendarRepository.save(event1);
 		};
 	}

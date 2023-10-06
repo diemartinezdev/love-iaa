@@ -11,7 +11,63 @@
     <title>LoveIAA</title>
 </head>
 <body>
+<style>
+    [v-cloak] {
+        display: none;
+    }
+</style>
+<div id="app" v-cloak>
+    <div class="toast-container position-absolute p-3 top-0 end-0" id="toastPlacement">
+        <div id="danger-toast" data-bs-delay="2000" class="toast align-items-center text-white bg-danger border-0"
+             role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    {{ errorMsg }}
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-12 col-md-2">
+                <div class="">
+                    <a href="/web/profile.html"
+                       class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                        <img class="menu-logo" src="img/play-with-pet.png">
 
+                    </a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="/web/profile.html" class="nav-link active">
+                                <i class="bi bi-hearts"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/web/activities.html" class="nav-link link-dark">
+                                <i class="bi bi-activity"></i>
+                                Activities
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/web/institutions.html" class="nav-link link-dark">
+                                <i class="bi bi-hospital"></i>
+                                Institutions
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <button class="btn btn-danger img-fluid" v-on:click="signOut">Sign out</button>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"

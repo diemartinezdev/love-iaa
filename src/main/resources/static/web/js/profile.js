@@ -10,11 +10,11 @@ Vue.createApp({
             getData: function () {
                 const urlParams = new URLSearchParams(window.location.search);
                 const id = urlParams.get('id');
-                axios.get(`/api/accounts/${id}`)
+                axios.get(`/api/professionals/${id}`)
                     .then((response) => {
                         //get client ifo
-                        this.accountInfo = response.data;
-                        this.accountInfo.transactions.sort((a, b) => (b.id - a.id))
+                        this.professionalInfo = response.data;
+                        this.professionalInfo.transactions.sort((a, b) => (b.id - a.id))
                     })
                     .catch((error) => {
                         // handle error

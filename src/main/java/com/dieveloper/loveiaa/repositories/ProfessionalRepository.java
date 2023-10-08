@@ -6,4 +6,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface ProfessionalRepository extends JpaRepository<Professional, Long> {
+    Professional findByEmail(String email);
 }

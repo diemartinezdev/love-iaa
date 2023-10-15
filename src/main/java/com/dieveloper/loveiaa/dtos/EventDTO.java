@@ -1,23 +1,23 @@
 package com.dieveloper.loveiaa.dtos;
 
-import com.dieveloper.loveiaa.models.Calendar;
+import com.dieveloper.loveiaa.models.Event;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class CalendarDTO {
+public class EventDTO {
     private Long id;
     private LocalDate date;
     private LocalTime hour;
     private String activityName;
     private String institutionName;
 
-    public CalendarDTO(Calendar calendar) {
-        this.id = calendar.getId();
-        this.date = calendar.getDate();
-        this.hour = calendar.getHour();
-        this.activityName = calendar.getActivity().getName();
-        this.institutionName = calendar.getInstitution().getName();
+    public EventDTO(Event event) {
+        this.id = event.getId();
+        this.date = event.getDate();
+        this.hour = event.getHour();
+        this.activityName = event.getActivity().getName();
+        this.institutionName = event.getInstitution().getName();
     }
 
     public Long getId() {

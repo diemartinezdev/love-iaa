@@ -1,14 +1,13 @@
 package com.dieveloper.loveiaa.models;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
-public class Calendar {
+public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
@@ -28,9 +27,9 @@ public class Calendar {
     @JoinColumn(name = "professional_id")
     private Professional professional;
 
-    public Calendar() { }
+    public Event() { }
 
-    public Calendar(LocalDate date, LocalTime hour, Activity activity, Institution institution, Professional professional) {
+    public Event(LocalDate date, LocalTime hour, Activity activity, Institution institution, Professional professional) {
         this.date = date;
         this.hour = hour;
         this.activity = activity;

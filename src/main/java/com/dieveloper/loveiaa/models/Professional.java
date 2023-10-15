@@ -22,7 +22,7 @@ public class Professional {
     @OneToMany(mappedBy = "professional", fetch = FetchType.EAGER)
     private Set<Activity> activities = new HashSet<>();
     @OneToMany(mappedBy = "professional", fetch = FetchType.EAGER)
-    private Set<Calendar> calendars = new HashSet<>();
+    private Set<Event> events = new HashSet<>();
 
     public Professional() {
     }
@@ -95,11 +95,11 @@ public class Professional {
         this.activities = activities;
     }
 
-    public Set<Calendar> getCalendars() {
-        return calendars;
+    public Set<Event> getCalendars() {
+        return events;
     }
 
-    public void setCalendars(Set<Calendar> calendars) {
-        this.calendars = calendars;
+    public void setCalendars(Set<Event> events) {
+        this.events = events;
     }
 }

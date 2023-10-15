@@ -1,11 +1,11 @@
 package com.dieveloper.loveiaa;
 
 import com.dieveloper.loveiaa.models.Activity;
-import com.dieveloper.loveiaa.models.Calendar;
+import com.dieveloper.loveiaa.models.Event;
 import com.dieveloper.loveiaa.models.Institution;
 import com.dieveloper.loveiaa.models.Professional;
 import com.dieveloper.loveiaa.repositories.ActivityRepository;
-import com.dieveloper.loveiaa.repositories.CalendarRepository;
+import com.dieveloper.loveiaa.repositories.EventRepository;
 import com.dieveloper.loveiaa.repositories.InstitutionRepository;
 import com.dieveloper.loveiaa.repositories.ProfessionalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class LoveIaaApplication {
 	}
 
 	@Bean
-	public CommandLineRunner initData(ProfessionalRepository professionalRepository, InstitutionRepository institutionRepository, ActivityRepository activityRepository, CalendarRepository calendarRepository) {
+	public CommandLineRunner initData(ProfessionalRepository professionalRepository, InstitutionRepository institutionRepository, ActivityRepository activityRepository, EventRepository eventRepository) {
 		return (args) -> {
 			Professional user0 = new Professional("Pepe","Pepitez","pepe@gmail.com", passwordEncoder.encode("pepita"));
 			professionalRepository.save(user0);
@@ -46,8 +46,8 @@ public class LoveIaaApplication {
 			Activity acti1 = new Activity("Equilibrio","Propiocepción","asdfasdf","Pelota a la mitad","Se sube a la pelota",4,9,25,user1);
 			activityRepository.save(acti1);
 
-			Calendar event1 = new Calendar(LocalDate.of(2023,2,22),LocalTime.of(22,03),acti1,inst2,user1);
-			calendarRepository.save(event1);
+			Event event1 = new Event(LocalDate.of(2023,2,22),LocalTime.of(22,03),acti1,inst2,user1);
+			eventRepository.save(event1);
 		};
 	}
 }

@@ -4,7 +4,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,7 +25,7 @@ public class Institution {
     private Professional professional;
 
     @OneToMany(mappedBy = "institution", fetch = FetchType.EAGER)
-    private Set<Calendar> calendars = new HashSet<>();
+    private Set<Event> events = new HashSet<>();
 
     public Institution() {
     }
@@ -114,11 +113,11 @@ public class Institution {
         this.professional = professional;
     }
 
-    public Set<Calendar> getCalendars() {
-        return calendars;
+    public Set<Event> getCalendars() {
+        return events;
     }
 
-    public void setCalendars(Set<Calendar> calendars) {
-        this.calendars = calendars;
+    public void setCalendars(Set<Event> events) {
+        this.events = events;
     }
 }

@@ -1,10 +1,8 @@
 package com.dieveloper.loveiaa.dtos;
 
-import com.dieveloper.loveiaa.models.Activity;
 import com.dieveloper.loveiaa.models.Professional;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toSet;
 
@@ -17,7 +15,7 @@ public class ProfessionalDTO {
     private Set<InstitutionDTO> institutions;
     private Set<ActivityDTO> activities;
 
-    private Set<CalendarDTO> calendars;
+    private Set<EventDTO> calendars;
 
     public ProfessionalDTO() {
     }
@@ -40,7 +38,7 @@ public class ProfessionalDTO {
                 .collect(toSet());
         this.calendars = professional
                 .getCalendars()
-                .stream().map(calendar -> new CalendarDTO(calendar))
+                .stream().map(calendar -> new EventDTO(calendar))
                 .collect(toSet());
     }
 
@@ -72,7 +70,7 @@ public class ProfessionalDTO {
         return activities;
     }
 
-    public Set<CalendarDTO> getCalendars() {
+    public Set<EventDTO> getCalendars() {
         return calendars;
     }
 }

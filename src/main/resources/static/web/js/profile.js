@@ -8,13 +8,9 @@ Vue.createApp({
     },
     methods: {
             getData: function () {
-                const urlParams = new URLSearchParams(window.location.search);
-                const id = urlParams.get('id');
-                axios.get(`/api/professionals/${id}`)
+                axios.get("/api/professionals/current")
                     .then((response) => {
-                        //get client ifo
-                        this.professionalInfo = response.data;
-                        this.professionalInfo.transactions.sort((a, b) => (b.id - a.id))
+                    this.profileInfo = response.data;
                     })
                     .catch((error) => {
                         // handle error
